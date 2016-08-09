@@ -22,7 +22,7 @@ class movie_class {
         $this->url = $url;
 
         if($url == '') {
-            
+
             $arr_url_1 = explode("src=", $html_code);
             $arr_url = explode(' ', $arr_url_1[1]);
             $src = str_replace(array('"', "'"), '', $arr_url[0]);
@@ -33,13 +33,17 @@ class movie_class {
 
                 case 'videoapi.my.mail.ru':
                     $this->url = 'my.mail.ru/' . $arr_src[5]. '/' . $arr_src[6] . '/video/' . $arr_src[7] . '/' . $arr_src[8];
-                break;
+                    break;
 
                 case 'www.youtube.com':
                     $arr_url = explode('"', $html_code);
                     $arr_video_id = explode('/', $arr_url[5]);
                     $video_id = $arr_video_id[4];
                     $this->url = 'www.youtube.com/watch?v=' . $video_id;
+                    break;
+                default:
+                    echo 'unsupported video hosting';
+                    die();
                     break;
             }
         }
