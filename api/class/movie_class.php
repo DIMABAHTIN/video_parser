@@ -41,6 +41,7 @@ class movie_class {
                     $video_id = $arr_video_id[4];
                     $this->url = 'www.youtube.com/watch?v=' . $video_id;
                     break;
+
                 default:
                     echo 'unsupported video hosting';
                     die();
