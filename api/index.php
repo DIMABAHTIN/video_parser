@@ -36,7 +36,7 @@ if($action == 'video') {
 
     if(  $send_data['title'] == '') {
         http_response_code(404);
-        die();
+        die(); 
     }
 
     if($html_code == '') {
