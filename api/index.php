@@ -30,12 +30,6 @@ if($action == 'video') {
         die();
     }
 
-    $headers = get_headers($url);
-    if(preg_match("/\404\b/", $headers[0])) {
-        http_response_code(414);
-        die();
-    }
-
     // move data to array
     // prepare to send
     $send_data['title'] = $movie->get_title();
