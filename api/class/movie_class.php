@@ -17,6 +17,9 @@ class movie_class {
 
     // html_code of movie
     var $html_code;
+    
+    // response from url
+    var $answer;
 
     public function __construct($url, $html_code='') {
         $this->url = $url;
@@ -48,8 +51,8 @@ class movie_class {
                     break;
             }
         }
-    echo stripos($url, '//');
-        if(!stripos($url, 'https://')) {
+
+        if(!stripos($url, '//')) {
             $this->url = 'https://' . $this->url;
         }
 

@@ -33,6 +33,12 @@ if($action == 'video') {
     // move data to array
     // prepare to send
     $send_data['title'] = $movie->get_title();
+
+    if(  $send_data['title'] == '') {
+        http_response_code(404);
+        die();
+    }
+
     if($html_code == '') {
         $send_data['html_code'] = $movie->get_html_code();
     } else {
